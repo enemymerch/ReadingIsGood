@@ -1,0 +1,20 @@
+server:
+    port: 9292
+    servlet:
+        context-path: /rig
+spring:
+    datasource:
+        url: ${DB_URL:jdbc:h2:mem:rigdb}
+        driver-class-name: ${DB_DRIVER:org.h2.Driver}
+        username: ${DB_USER:rig_db_user_admin}
+        password: ${DB_PASSWORD:cmlnX2RiX3VzZXJfYWRtaW5fcGFzc3dvcmQ=}
+    jpa:
+        database-platform: ${HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+jwt:
+    secret: "cmVhZGluZ2lzZ29vZA"
+    tokenPrefix: "Bearer "
+    header: "Authorization"
+    jtwTokenValidity: 18000 

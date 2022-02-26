@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "3226a1fe-bead-44fa-84da-adcb225714e3",
+		"name": "rig",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "list Books (secured)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "create Book (secured)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"The Lord of the Rings - Return of the King\",\n    \"author\": \"JRR Tolkien\",\n    \"stock\": 100,\n    \"price\": 100.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{bookAPI}}",
+							"host": [
+								"{{baseUrl}}{{bookAPI}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book stock (secured)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtY2FuIiwicm9sZXMiOlsiY3VzdG9tZXIiXSwiZXhwIjoxNjQ1ODI2ODkxLCJpYXQiOjE2NDU4MDg4OTF9.4AvryypfrFtePgVobRefT1JxjDZO66N6FrHm8Qv9z-KhL-XQEcOZ4fj7mEgmpWSSPE-nVxNAwJbzcr4LgkJjCg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"briana\",\n    \"firstName\": \"Brian\",\n    \"lastName\": \"Hart\",\n    \"password\": \"briana\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{customerAPI}}",
+							"host": [
+								"{{baseUrl}}{{customerAPI}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list customer orders (secured)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqaG9ubnkiLCJyb2xlcyI6WyJjdXN0b21lciJdLCJleHAiOjE2NDU4OTgzMDAsImlhdCI6MTY0NTg4MDMwMH0.gp0X_HEV_TD4KSlTDIjbmE4s402JLG3hgWDtWVWuUbQq7z-auHIYbwPO48t8sE9JzUXdI2gM_WAO4h0OPzJ5gA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}{{customerAPI}}/jhonny/order",
+							"host": [
+								"{{baseUrl}}{{customerAPI}}"
+							],
+							"path": [
+								"jhonny",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "getToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"jhonny\",\n    \"password\": \"jhonny\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{authAPI}}",
+							"host": [
+								"{{baseUrl}}{{authAPI}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "list order by id (secured)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "create order (secured)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJicmlhbmEiLCJyb2xlcyI6WyJjdXN0b21lciJdLCJleHAiOjE2NDU4NTM2MTAsImlhdCI6MTY0NTgzNTYxMH0.33d0RtM55m6ZslffMJf82UBoGJGWOVNVrey7QC-F0hUCEjQbZ07FNEyyQu7fJTMoUgbCHXGAIZVhEsABIuSJOw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 2,\n    \"username\": \"briana\",\n    \"bookId\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{orderAPI}}",
+							"host": [
+								"{{baseUrl}}{{orderAPI}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list between dates (secured)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "statistic",
+			"item": [
+				{
+					"name": "list statistics (secured)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJicmlhbmEiLCJyb2xlcyI6WyJjdXN0b21lciJdLCJleHAiOjE2NDU4NTM2MTAsImlhdCI6MTY0NTgzNTYxMH0.33d0RtM55m6ZslffMJf82UBoGJGWOVNVrey7QC-F0hUCEjQbZ07FNEyyQu7fJTMoUgbCHXGAIZVhEsABIuSJOw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}{{statisticAPI}}?month=2&year=2022",
+							"host": [
+								"{{baseUrl}}{{statisticAPI}}"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "2"
+								},
+								{
+									"key": "year",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
